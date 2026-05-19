@@ -4,13 +4,14 @@ type TextLinkProps = {
   href: string
   children: React.ReactNode
   external?: boolean
+  className?: string
 }
 
-export function TextLink({ href, children, external }: TextLinkProps) {
+export function TextLink({ href, children, external, className = '' }: TextLinkProps) {
   return (
     <a
       href={href}
-      className="group relative inline-flex items-center gap-2 py-3 text-[15px] font-medium text-white"
+      className={`group relative inline-flex items-center gap-2 py-3 text-[15px] font-medium text-white ${className}`}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
     >
       <span>{children}</span>
